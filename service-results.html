@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Booking checks</title></head><body data-page="test"><main><div id="admin-content"><div class="admin-top"><div><span class="eyebrow">YOUR STUDIO, AT A GLANCE</span><h1>สวัสดี คุณTest owner</h1><p class="muted">ดูแลทุกคิวของ ละมุน สตูดิโอ ได้จากที่เดียว</p></div><button class="button" id="add-booking">+ เพิ่มคิวด้วยตัวเอง</button></div><div class="stats" id="stats"><div class="stat"><span>คิววันนี้</span><strong>0<small style="font-size:12px;font-weight:400;margin-left:8px">คิว</small></strong></div><div class="stat"><span>คิวพรุ่งนี้</span><strong>2<small style="font-size:12px;font-weight:400;margin-left:8px">คิว</small></strong></div><div class="stat"><span>จำนวนคิวทั้งหมด</span><strong>3<small style="font-size:12px;font-weight:400;margin-left:8px">คิว</small></strong></div><div class="stat"><span>คิวที่ยกเลิก</span><strong>1<small style="font-size:12px;font-weight:400;margin-left:8px">คิว</small></strong></div></div><div class="admin-layout"><div class="calendar-card"><div class="calendar-header"><div><span class="calendar-symbol">▦</span><h3 id="month-label">พฤศจิกายน 2569</h3></div><div class="calendar-actions"><button class="today-button" id="today-button">วันนี้</button><button class="icon-button" id="prev-month" aria-label="เดือนก่อนหน้า">‹</button><button class="icon-button" id="next-month" aria-label="เดือนถัดไป">›</button></div></div><div class="weekdays"><span>อา.</span><span>จ.</span><span>อ.</span><span>พ.</span><span>พฤ.</span><span>ศ.</span><span>ส.</span></div><div class="calendar-days" id="calendar-days"><button class="day closed   " data-date="2026-11-01" aria-pressed="false" aria-label="วันอาทิตย์ที่ 1 พฤศจิกายน 2569 ปิดรับจอง, จองแล้ว 0 คิว"><span>1</span><small>ปิดรับจอง</small></button><button class="day available   " data-date="2026-11-02" aria-pressed="false" aria-label="วันจันทร์ที่ 2 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>2</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-03" aria-pressed="false" aria-label="วันอังคารที่ 3 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>3</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-04" aria-pressed="false" aria-label="วันพุธที่ 4 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>4</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-05" aria-pressed="false" aria-label="วันพฤหัสบดีที่ 5 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>5</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-06" aria-pressed="false" aria-label="วันศุกร์ที่ 6 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>6</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-07" aria-pressed="false" aria-label="วันเสาร์ที่ 7 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>7</span><small>ว่าง 18 คิว</small></button><button class="day closed   " data-date="2026-11-08" aria-pressed="false" aria-label="วันอาทิตย์ที่ 8 พฤศจิกายน 2569 ปิดรับจอง, จองแล้ว 0 คิว"><span>8</span><small>ปิดรับจอง</small></button><button class="day available   " data-date="2026-11-09" aria-pressed="false" aria-label="วันจันทร์ที่ 9 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>9</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-10" aria-pressed="false" aria-label="วันอังคารที่ 10 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>10</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-11" aria-pressed="false" aria-label="วันพุธที่ 11 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>11</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-12" aria-pressed="false" aria-label="วันพฤหัสบดีที่ 12 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>12</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-13" aria-pressed="false" aria-label="วันศุกร์ที่ 13 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>13</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-14" aria-pressed="false" aria-label="วันเสาร์ที่ 14 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>14</span><small>ว่าง 18 คิว</small></button><button class="day closed   " data-date="2026-11-15" aria-pressed="false" aria-label="วันอาทิตย์ที่ 15 พฤศจิกายน 2569 ปิดรับจอง, จองแล้ว 0 คิว"><span>15</span><small>ปิดรับจอง</small></button><button class="day available   " data-date="2026-11-16" aria-pressed="false" aria-label="วันจันทร์ที่ 16 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>16</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-17" aria-pressed="false" aria-label="วันอังคารที่ 17 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>17</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-18" aria-pressed="false" aria-label="วันพุธที่ 18 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>18</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-19" aria-pressed="false" aria-label="วันพฤหัสบดีที่ 19 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>19</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-20" aria-pressed="false" aria-label="วันศุกร์ที่ 20 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>20</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-21" aria-pressed="false" aria-label="วันเสาร์ที่ 21 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>21</span><small>ว่าง 18 คิว</small></button><button class="day closed   " data-date="2026-11-22" aria-pressed="false" aria-label="วันอาทิตย์ที่ 22 พฤศจิกายน 2569 ปิดรับจอง, จองแล้ว 0 คิว"><span>22</span><small>ปิดรับจอง</small></button><button class="day available   " data-date="2026-11-23" aria-pressed="false" aria-label="วันจันทร์ที่ 23 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>23</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-24" aria-pressed="false" aria-label="วันอังคารที่ 24 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>24</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-25" aria-pressed="false" aria-label="วันพุธที่ 25 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>25</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-26" aria-pressed="false" aria-label="วันพฤหัสบดีที่ 26 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>26</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-27" aria-pressed="false" aria-label="วันศุกร์ที่ 27 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>27</span><small>ว่าง 18 คิว</small></button><button class="day available   " data-date="2026-11-28" aria-pressed="false" aria-label="วันเสาร์ที่ 28 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>28</span><small>ว่าง 18 คิว</small></button><button class="day closed   " data-date="2026-11-29" aria-pressed="false" aria-label="วันอาทิตย์ที่ 29 พฤศจิกายน 2569 ปิดรับจอง, จองแล้ว 0 คิว"><span>29</span><small>ปิดรับจอง</small></button><button class="day available   " data-date="2026-11-30" aria-pressed="false" aria-label="วันจันทร์ที่ 30 พฤศจิกายน 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>30</span><small>ว่าง 18 คิว</small></button><button class="day available outside  " data-date="2026-12-01" aria-pressed="false" aria-label="วันอังคารที่ 1 ธันวาคม 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>1</span><small>ว่าง 18 คิว</small></button><button class="day available outside  " data-date="2026-12-02" aria-pressed="false" aria-label="วันพุธที่ 2 ธันวาคม 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>2</span><small>ว่าง 18 คิว</small></button><button class="day available outside  " data-date="2026-12-03" aria-pressed="false" aria-label="วันพฤหัสบดีที่ 3 ธันวาคม 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>3</span><small>ว่าง 18 คิว</small></button><button class="day available outside  " data-date="2026-12-04" aria-pressed="false" aria-label="วันศุกร์ที่ 4 ธันวาคม 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>4</span><small>ว่าง 18 คิว</small></button><button class="day available outside  " data-date="2026-12-05" aria-pressed="false" aria-label="วันเสาร์ที่ 5 ธันวาคม 2569 ว่าง 18 คิว, จองแล้ว 0 คิว"><span>5</span><small>ว่าง 18 คิว</small></button></div><div class="legend"><span><i class="dot available"></i>คิวว่าง</span><span><i class="dot limited"></i>เหลือคิวน้อย</span><span><i class="dot full"></i>คิวเต็ม</span><span><i class="dot closed"></i>ปิดรับจอง</span></div></div><section class="panel"><div class="admin-top"><h2 style="font-size:19px">คิวประจำวันที่เลือก</h2><input id="admin-date" class="date-picker" style="width:auto" type="date" value="2026-10-03" aria-label="เลือกวันที่ดูคิว"></div><p id="admin-day-label" class="muted" style="margin-top:12px">วันเสาร์ที่ 3 ตุลาคม 2569</p><div id="day-bookings"><article class="admin-booking "><div><h3>09:00 — Test customer — ตัดผม</h3><p>L0002 · 0812345678 · ยืนยันแล้ว</p><p>&lt;script&gt;unsafe&lt;/script&gt;</p></div><div class="row-actions"><button class="secondary" data-edit="53d8cdf5-4ec8-4826-a0f1-be42d2dc0c14">แก้ไข</button><button class="secondary" data-cancel="53d8cdf5-4ec8-4826-a0f1-be42d2dc0c14">ยกเลิก</button></div></article><article class="admin-booking "><div><h3>09:00 — Second customer — ตัดผม</h3><p>L0003 · 0812345678 · ยืนยันแล้ว</p><p>&lt;script&gt;unsafe&lt;/script&gt;</p></div><div class="row-actions"><button class="secondary" data-edit="7b7eac66-9072-4330-9b62-d37c28cdff13">แก้ไข</button><button class="secondary" data-cancel="7b7eac66-9072-4330-9b62-d37c28cdff13">ยกเลิก</button></div></article><article class="admin-booking cancelled"><div><h3>10:00 — Test customer — ตัดผม</h3><p>L0001 · 0812345678 · ยกเลิกแล้ว</p><p>&lt;script&gt;unsafe&lt;/script&gt;</p></div></article></div></section></div><section class="panel image-settings">
+    <h2>รูปภาพหน้าแรก</h2>
+    <p class="muted">เลือกภาพร้านของคุณ เพื่อแสดงข้างข้อความต้อนรับบนหน้าแรก</p>
+    <img class="shop-image-preview" alt="ตัวอย่างภาพหน้าแรก" src="assets/studio.jpg">
+    <form class="form-grid">
+      <label class="full-width">เลือกรูปภาพ
+        <input name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photo-hint">
+      </label>
+      <p id="photo-hint" class="muted full-width">รองรับ JPG, PNG และ WebP ไม่เกิน 10 MB · แนะนำภาพแนวนอน ระบบจะย่อภาพให้อัตโนมัติ</p>
+      <p class="full-width" role="status" data-photo-status=""></p>
+      <button class="secondary" type="button" data-reset-photo="">ใช้ภาพเริ่มต้น</button>
+      <button class="button" type="submit">บันทึกรูปภาพ</button>
+    </form></section><section class="panel service-settings">
+    <h2>บริการของร้าน</h2>
+    <p class="muted">เพิ่มบริการที่ร้านทำได้ เพื่อให้ลูกค้าเลือกตอนจองคิว</p>
+    <form class="form-grid" style="margin-top:20px">
+      <label class="full-width">ชื่อบริการ
+        <input name="serviceName" required="" maxlength="80" placeholder="เช่น ต่อขนตา ทำเล็บ หรือนวดผ่อนคลาย">
+      </label>
+      <p class="form-error full-width" role="alert">มีบริการชื่อนี้แล้ว</p>
+      <button class="button full-width" type="submit">+ เพิ่มบริการ</button>
+    </form>
+    <div data-service-list=""><div class="closure-item"><span>ตัดผม</span><button class="secondary" type="button" data-remove-service="0" aria-label="นำบริการ ตัดผม ออก">นำออก</button></div><div class="closure-item"><span>ทำสีผม</span><button class="secondary" type="button" data-remove-service="1" aria-label="นำบริการ ทำสีผม ออก">นำออก</button></div><div class="closure-item"><span>สระและจัดแต่งทรง</span><button class="secondary" type="button" data-remove-service="2" aria-label="นำบริการ สระและจัดแต่งทรง ออก">นำออก</button></div><div class="closure-item"><span>ทรีตเมนต์</span><button class="secondary" type="button" data-remove-service="3" aria-label="นำบริการ ทรีตเมนต์ ออก">นำออก</button></div><div class="closure-item"><span>New service</span><button class="secondary" type="button" data-remove-service="4" aria-label="นำบริการ New service ออก">นำออก</button></div></div>
+    <p class="muted" style="margin-top:15px">ทุกบริการใช้ระยะเวลาต่อคิวตามการตั้งค่าร้าน การนำบริการออกจะไม่เปลี่ยนรายละเอียดคิวที่จองไว้แล้ว</p></section><div class="settings-columns"><section class="panel"><h2>ตั้งค่าร้านและเวลาทำการ</h2><form id="settings-form" class="form-grid"><label>ชื่อเจ้าของร้าน<input name="owner" required="" maxlength="80" value="Test owner"></label><label>ชื่อร้าน<input name="name" required="" maxlength="100" value="ละมุน สตูดิโอ"></label><label class="full-width">รายละเอียดร้าน<textarea name="description" maxlength="300">ดูแลเส้นผมและความรู้สึกดี ๆ ในบรรยากาศที่เป็นกันเอง</textarea></label><label class="full-width">เบอร์โทรร้าน<input name="phone" type="tel" required="" pattern="[0-9+() -]{8,20}" value="02-123-4567"></label><label>เวลาเปิด<input name="open" type="time" required="" value="09:00"></label><label>เวลาปิด<input name="close" type="time" required="" value="18:00"></label><label>ระยะเวลาต่อหนึ่งคิว<select name="duration"><option value="15">15 นาที</option><option value="30">30 นาที</option><option value="45">45 นาที</option><option value="60" selected="">60 นาที</option><option value="90">90 นาที</option><option value="120">120 นาที</option></select></label><label>จำนวนลูกค้าต่อช่วงเวลา<input name="capacity" type="number" min="1" max="50" required="" value="2"></label><div class="full-width"><p class="muted" style="margin-bottom:9px">วันเปิดทำการ</p><div class="weekday-options"><label><input type="checkbox" name="days" value="0">อา.</label><label><input type="checkbox" name="days" value="1" checked="">จ.</label><label><input type="checkbox" name="days" value="2" checked="">อ.</label><label><input type="checkbox" name="days" value="3" checked="">พ.</label><label><input type="checkbox" name="days" value="4" checked="">พฤ.</label><label><input type="checkbox" name="days" value="5" checked="">ศ.</label><label><input type="checkbox" name="days" value="6" checked="">ส.</label></div></div><p class="form-error full-width" role="alert"></p><button class="button full-width">บันทึกการตั้งค่า</button></form></section><section class="panel"><h2>วันหยุดและช่วงเวลาปิดรับจอง</h2><form id="closure-form" class="form-grid"><label class="full-width">วันที่<input type="date" name="date" required="" min="2026-10-02" value="2026-10-03"></label><label class="full-width">ประเภท<select name="type"><option value="day">ปิดทั้งวัน / วันหยุด</option><option value="time">ปิดเฉพาะช่วงเวลา</option></select></label><label class="closure-time" hidden="">ตั้งแต่<input type="time" name="start" value="12:00"></label><label class="closure-time" hidden="">ถึง<input type="time" name="end" value="13:00"></label><label class="full-width">เหตุผล<input name="reason" maxlength="100" placeholder="เช่น วันหยุดร้าน หรือพักกลางวัน"></label><p class="form-error full-width" role="alert"></p><button class="secondary full-width">+ เพิ่มช่วงปิดรับจอง</button></form><div id="closures-list" style="margin-top:20px"><div class="closure-item"><div>3 ต.ค. 2569 · 12:30–13:30<p class="muted"></p></div><button class="secondary" data-remove="break">เปิดรับจอง</button></div></div></section></div><p class="demo-note">ข้อมูลทั้งหมดอยู่ในเบราว์เซอร์นี้ · ยังไม่รองรับการใช้งานร่วมกันต่างอุปกรณ์</p></div><div id="booking-content"><div class="panel success"><div class="success-icon">✓</div><h2>จองคิวเรียบร้อยแล้ว</h2><p class="muted">แล้วพบกันนะคะ เราพร้อมดูแลคุณ</p><p class="queue-number">L0001</p><p class="muted">เลขคิวของคุณ</p><div class="summary-box"><strong>ละมุน สตูดิโอ</strong><br>วันเสาร์ที่ 3 ตุลาคม 2569 · 09:00 น.<br>Test customer · ตัดผม<br>โทร 0812345678<br>หมายเหตุ: &lt;script&gt;unsafe&lt;/script&gt;</div><p class="muted">บันทึกภาพหน้าจอนี้ไว้ และมาถึงก่อนเวลานัด 10 นาที</p><a class="button" style="margin-top:20px" href="index.html">กลับหน้าร้าน →</a></div></div></main><button id="logout"></button><button id="close-dialog"></button><div id="toast" class="">เพิ่มบริการแล้ว ลูกค้าสามารถเลือกตอนจองได้</div><pre id="results">PASS Default 09:00–18:00 schedule produces nine one-hour appointments
+PASS Future open slot is available
+PASS Concurrent attempts accept exactly one booking
+PASS Full slot is unavailable
+PASS Persisted booking survives reread
+PASS Receipt includes queue number
+PASS Customer notes render as text, never markup
+PASS First owner visit renders setup form
+PASS Password hash is deterministic and not plaintext
+PASS Owner writes require session
+PASS Editing moves booking and frees old slot
+PASS Closing a booked period is rejected atomically
+PASS Cancellation restores capacity
+PASS Capacity two accepts two and blocks a third
+PASS Queue numbers are unique and do not reuse cancellations
+PASS Partial closure blocks all overlapping slots
+PASS Weekly holiday is grey and unavailable
+PASS Past appointment cannot be booked
+PASS Dashboard renders calendar, stats, bookings and settings
+PASS Dashboard displays cancelled appointments
+PASS Calendar month navigation works
+PASS Whole-day closure disables booking
+PASS Two remaining slots display yellow
+PASS Zero remaining slots display red
+PASS Uploaded photo resizes to 1600px
+PASS Uploaded photo is supported by homepage
+PASS Non-image upload is rejected
+PASS Photo persists in localStorage
+PASS Saving settings preserves photo
+PASS Owner can add a persisted service
+PASS New service appears in booking options
+PASS Duplicate service is rejected
+PASS Customer can book a custom service
+PASS Removed service cannot be used for new bookings
+PASS Existing bookings retain removed services
+PASS Shop settings retain service list
+ALL 36 CHECKS PASSED</pre><script src="../wwwroot/script.js"></script><script>
+(async()=>{
+ // Keep virtual-time headless runs alive while Web Crypto uses real worker time.
+ const workerWait=setInterval(()=>{let sum=0;for(let i=0;i<2000000;i++)sum+=Math.sqrt(i);window.testChecksum=sum;},100);
+ const results=[]; const check=(label,condition)=>{if(!condition)throw new Error(label);results.push('PASS '+label);document.querySelector('#results').textContent=results.join('\n');};
+ const original=localStorage.getItem(STORAGE_KEY);
+ try {
+  localStorage.removeItem(STORAGE_KEY);sessionStorage.removeItem(SESSION_KEY);state=readState();
+  check('Default 09:00–18:00 schedule produces nine one-hour appointments',baseSlots().length===9);
+  let date=shiftDay(today(),1);while(parseDate(date).getUTCDay()===0)date=shiftDay(date,1);
+  const input={name:'Test customer',phone:'0812345678',service:services[0],date,time:'09:00',note:'<script>unsafe<\/script>'};
+  check('Future open slot is available',slotInfo(date,'09:00').available);
+  const attempts=await Promise.allSettled([saveBooking(input),saveBooking({...input,name:'Second customer'})]);
+  check('Concurrent attempts accept exactly one booking',attempts.filter(r=>r.status==='fulfilled').length===1);
+  check('Full slot is unavailable',!slotInfo(date,'09:00').available);
+  check('Persisted booking survives reread',readState().bookings.length===1);
+  const booking=state.bookings[0];renderReceipt(booking);
+  check('Receipt includes queue number',document.querySelector('.queue-number').textContent===booking.queue);
+  check('Customer notes render as text, never markup',!document.querySelector('#booking-content script'));
+  renderSetup();check('First owner visit renders setup form',!!document.querySelector('#setup-form'));
+  const salt='test-salt',hash=await passwordHash('test-password',salt);
+  check('Password hash is deterministic and not plaintext',hash===await passwordHash('test-password',salt)&&hash!=='test-password'&&hash.length===64);
+  await mutate(d=>{d.credentials={salt,hash};d.shop.owner='Test owner';});
+  let denied=false;try{await mutate(d=>{},true);}catch{denied=true;}check('Owner writes require session',denied);
+  sessionStorage.setItem(SESSION_KEY,hash);
+  await saveBooking({...input,id:booking.id,time:'10:00'},true);
+  check('Editing moves booking and frees old slot',slotInfo(date,'09:00').available&&!slotInfo(date,'10:00').available);
+  let conflict=false;try{await mutate(d=>{d.closures.push({id:'blocked',date,start:'10:00',end:'11:00'});assertSchedule(d);},true);}catch{conflict=true;}
+  check('Closing a booked period is rejected atomically',conflict&&readState().closures.length===0);
+  await mutate(d=>{d.bookings[0].status='cancelled';},true);
+  check('Cancellation restores capacity',slotInfo(date,'10:00').available);
+  await mutate(d=>{d.shop.capacity=2;},true);
+  const pair=await Promise.all([saveBooking(input),saveBooking({...input,name:'Second customer'})]);
+  check('Capacity two accepts two and blocks a third',pair.length===2&&!slotInfo(date,'09:00').available);
+  check('Queue numbers are unique and do not reuse cancellations',new Set(state.bookings.map(b=>b.queue)).size===3);
+  await mutate(d=>{d.closures.push({id:'break',date,start:'12:30',end:'13:30'});assertSchedule(d);},true);
+  check('Partial closure blocks all overlapping slots',slotInfo(date,'12:00').closed&&slotInfo(date,'13:00').closed&&slotInfo(date,'14:00').available);
+  let sunday=date;while(parseDate(sunday).getUTCDay()!==0)sunday=shiftDay(sunday,1);
+  check('Weekly holiday is grey and unavailable',dayInfo(sunday).status==='closed'&&slotInfo(sunday,'09:00').closed);
+  check('Past appointment cannot be booked',!slotInfo('2020-01-01','09:00').available);
+  selectedDate=date;setMonth(date);renderDashboard();
+  check('Dashboard renders calendar, stats, bookings and settings',document.querySelectorAll('.stat').length===4&&document.querySelectorAll('.day').length>=28&&!!document.querySelector('#settings-form'));
+  check('Dashboard displays cancelled appointments',!!document.querySelector('.admin-booking.cancelled'));
+  document.querySelector('#next-month').click();check('Calendar month navigation works',month.slice(0,7)!==date.slice(0,7));
+  await mutate(d=>{d.closures.push({id:'day',date:shiftDay(sunday,1),start:'',end:''});},true);
+  check('Whole-day closure disables booking',dayInfo(shiftDay(sunday,1)).status==='closed');
+  const persisted=readState();persisted.shop.capacity=1;persisted.closures=[];persisted.bookings=[];state=persisted;
+  for(const time of baseSlots().slice(0,-2))state.bookings.push({...input,id:time,time,status:'confirmed',duration:60});
+  check('Two remaining slots display yellow',dayInfo(date).status==='limited');
+  for(const time of baseSlots().slice(-2))state.bookings.push({...input,id:time,time,status:'confirmed',duration:60});
+  check('Zero remaining slots display red',dayInfo(date).status==='full');
+  const canvas=document.createElement('canvas');canvas.width=2000;canvas.height=1000;
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+  const photo=await prepareShopImage(new File([blob],'photo.png',{type:'image/png'}));
+  const image=new Image();image.src=photo;await image.decode();
+  check('Uploaded photo resizes to 1600px',image.width===1600&&image.height===800);
+  check('Uploaded photo is supported by homepage',shopImageSource(photo)===photo);
+  let invalid=false;try{await prepareShopImage(new File(['text'],'bad.txt',{type:'text/plain'}));}catch{invalid=true;}
+  check('Non-image upload is rejected',invalid);
+  await mutate(d=>{d.shop.heroImage=photo;},true);
+  check('Photo persists in localStorage',readState().shop.heroImage===photo);
+  const settings=document.querySelector('#settings-form');
+  check('Saving settings preserves photo',shopFromForm(settings).heroImage===photo);
+  const serviceForm=document.querySelector('.service-settings form');
+  serviceForm.elements.serviceName.value='New service';
+  await serviceForm.onsubmit({preventDefault(){}});
+  check('Owner can add a persisted service',readState().shop.services.includes('New service'));
+  check('New service appears in booking options',serviceOptions().includes('New service'));
+  const before=shopServices().length;
+  serviceForm.elements.serviceName.value='New service';await serviceForm.onsubmit({preventDefault(){}});
+  check('Duplicate service is rejected',shopServices().length===before&&!!serviceForm.querySelector('.form-error').textContent);
+  const custom=await saveBooking({...input,time:'15:00',service:'New service'});
+  check('Customer can book a custom service',custom.service==='New service');
+  await mutate(d=>{d.shop.services=d.shop.services.filter(s=>s!=='New service');},true);
+  let rejected=false;try{await saveBooking({...input,time:'16:00',service:'New service'});}catch{rejected=true;}
+  check('Removed service cannot be used for new bookings',rejected);
+  const updated=await saveBooking({...custom,note:'Updated note'},true);
+  check('Existing bookings retain removed services',updated.service==='New service');
+  check('Shop settings retain service list',JSON.stringify(shopFromForm(settings).services)===JSON.stringify(shopServices()));
+  document.querySelector('#results').textContent=results.join('\n')+'\nALL '+results.length+' CHECKS PASSED';
+ }catch(e){document.querySelector('#results').textContent=results.join('\n')+'\nFAIL '+e.stack;}
+ finally{clearInterval(workerWait);if(original)localStorage.setItem(STORAGE_KEY,original);else localStorage.removeItem(STORAGE_KEY);sessionStorage.removeItem(SESSION_KEY);}
+})();
+</script>
+</body></html>
