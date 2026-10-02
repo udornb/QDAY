@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Booking checks</title></head><body data-page="test"><main><div id="admin-content"></div><div id="booking-content"></div></main><button id="logout"></button><button id="close-dialog"></button><div id="toast"></div><pre id="results">RUNNING</pre><script src="../wwwroot/script.js"></script><script>
+(async()=>{
+ // Keep virtual-time headless runs alive while Web Crypto uses real worker time.
+ const workerWait=setInterval(()=>{let sum=0;for(let i=0;i<2000000;i++)sum+=Math.sqrt(i);window.testChecksum=sum;},100);
+ const results=[]; const check=(label,condition)=>{if(!condition)throw new Error(label);results.push('PASS '+label);document.querySelector('#results').textContent=results.join('\n');};
+ const original=localStorage.getItem(STORAGE_KEY);
+ try {
+  localStorage.removeItem(STORAGE_KEY);sessionStorage.removeItem(SESSION_KEY);state=readState();
+  check('Default 09:00–18:00 schedule produces nine one-hour appointments',baseSlots().length===9);
+  let date=shiftDay(today(),1);while(parseDate(date).getUTCDay()===0)date=shiftDay(date,1);
+  const input={name:'Test customer',phone:'0812345678',service:services[0],date,time:'09:00',note:'<script>unsafe<\/script>'};
+  check('Future open slot is available',slotInfo(date,'09:00').available);
+  const attempts=await Promise.allSettled([saveBooking(input),saveBooking({...input,name:'Second customer'})]);
+  check('Concurrent attempts accept exactly one booking',attempts.filter(r=>r.status==='fulfilled').length===1);
+  check('Full slot is unavailable',!slotInfo(date,'09:00').available);
+  check('Persisted booking survives reread',readState().bookings.length===1);
+  const booking=state.bookings[0];renderReceipt(booking);
+  check('Receipt includes queue number',document.querySelector('.queue-number').textContent===booking.queue);
+  check('Customer notes render as text, never markup',!document.querySelector('#booking-content script'));
+  renderSetup();check('First owner visit renders setup form',!!document.querySelector('#setup-form'));
+  const salt='test-salt',hash=await passwordHash('test-password',salt);
+  check('Password hash is deterministic and not plaintext',hash===await passwordHash('test-password',salt)&&hash!=='test-password'&&hash.length===64);
+  await mutate(d=>{d.credentials={salt,hash};d.shop.owner='Test owner';});
+  let denied=false;try{await mutate(d=>{},true);}catch{denied=true;}check('Owner writes require session',denied);
+  sessionStorage.setItem(SESSION_KEY,hash);
+  await saveBooking({...input,id:booking.id,time:'10:00'},true);
+  check('Editing moves booking and frees old slot',slotInfo(date,'09:00').available&&!slotInfo(date,'10:00').available);
+  let conflict=false;try{await mutate(d=>{d.closures.push({id:'blocked',date,start:'10:00',end:'11:00'});assertSchedule(d);},true);}catch{conflict=true;}
+  check('Closing a booked period is rejected atomically',conflict&&readState().closures.length===0);
+  await mutate(d=>{d.bookings[0].status='cancelled';},true);
+  check('Cancellation restores capacity',slotInfo(date,'10:00').available);
+  await mutate(d=>{d.shop.capacity=2;},true);
+  const pair=await Promise.all([saveBooking(input),saveBooking({...input,name:'Second customer'})]);
+  check('Capacity two accepts two and blocks a third',pair.length===2&&!slotInfo(date,'09:00').available);
+  check('Queue numbers are unique and do not reuse cancellations',new Set(state.bookings.map(b=>b.queue)).size===3);
+  await mutate(d=>{d.closures.push({id:'break',date,start:'12:30',end:'13:30'});assertSchedule(d);},true);
+  check('Partial closure blocks all overlapping slots',slotInfo(date,'12:00').closed&&slotInfo(date,'13:00').closed&&slotInfo(date,'14:00').available);
+  let sunday=date;while(parseDate(sunday).getUTCDay()!==0)sunday=shiftDay(sunday,1);
+  check('Weekly holiday is grey and unavailable',dayInfo(sunday).status==='closed'&&slotInfo(sunday,'09:00').closed);
+  check('Past appointment cannot be booked',!slotInfo('2020-01-01','09:00').available);
+  selectedDate=date;setMonth(date);renderDashboard();
+  check('Dashboard renders calendar, stats, bookings and settings',document.querySelectorAll('.stat').length===4&&document.querySelectorAll('.day').length>=28&&!!document.querySelector('#settings-form'));
+  check('Dashboard displays cancelled appointments',!!document.querySelector('.admin-booking.cancelled'));
+  document.querySelector('#next-month').click();check('Calendar month navigation works',month.slice(0,7)!==date.slice(0,7));
+  await mutate(d=>{d.closures.push({id:'day',date:shiftDay(sunday,1),start:'',end:''});},true);
+  check('Whole-day closure disables booking',dayInfo(shiftDay(sunday,1)).status==='closed');
+  const persisted=readState();persisted.shop.capacity=1;persisted.closures=[];persisted.bookings=[];state=persisted;
+  for(const time of baseSlots().slice(0,-2))state.bookings.push({...input,id:time,time,status:'confirmed',duration:60});
+  check('Two remaining slots display yellow',dayInfo(date).status==='limited');
+  for(const time of baseSlots().slice(-2))state.bookings.push({...input,id:time,time,status:'confirmed',duration:60});
+  check('Zero remaining slots display red',dayInfo(date).status==='full');
+  const canvas=document.createElement('canvas');canvas.width=2000;canvas.height=1000;
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+  const photo=await prepareShopImage(new File([blob],'photo.png',{type:'image/png'}));
+  const image=new Image();image.src=photo;await image.decode();
+  check('Uploaded photo resizes to 1600px',image.width===1600&&image.height===800);
+  check('Uploaded photo is supported by homepage',shopImageSource(photo)===photo);
+  let invalid=false;try{await prepareShopImage(new File(['text'],'bad.txt',{type:'text/plain'}));}catch{invalid=true;}
+  check('Non-image upload is rejected',invalid);
+  await mutate(d=>{d.shop.heroImage=photo;},true);
+  check('Photo persists in localStorage',readState().shop.heroImage===photo);
+  const settings=document.querySelector('#settings-form');
+  check('Saving settings preserves photo',shopFromForm(settings).heroImage===photo);
+  document.querySelector('#results').textContent=results.join('\n')+'\nALL '+results.length+' CHECKS PASSED';
+ }catch(e){document.querySelector('#results').textContent=results.join('\n')+'\nFAIL '+e.stack;}
+ finally{clearInterval(workerWait);if(original)localStorage.setItem(STORAGE_KEY,original);else localStorage.removeItem(STORAGE_KEY);sessionStorage.removeItem(SESSION_KEY);}
+})();
+</script></body></html>
